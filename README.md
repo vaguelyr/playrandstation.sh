@@ -1,4 +1,4 @@
-<pre>Plays a random internet radio station stream from radcap.ru
+<pre>Plays a random internet radio station stream from radcap.ru or somafm.com
 
 Dependencies:
 	gnu coreutils
