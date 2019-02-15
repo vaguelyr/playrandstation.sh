@@ -10,10 +10,6 @@ while true ; do
 		stream_url=$(wget -q -O - $rand_station | grep src=\"http://[0-9\.:]*/ -o | sed -e 's/.*\"//')
 	else
 		echo soma		
-		#rand_station=http://somafm.com/$(shuf -n1 <(wget http://somafm.com/ -q -O -  | grep cbshort -A1 | grep / | cut -d '/' -f2) )
-		#stream_url=http://somafm.com$(wget -q -O - $rand_station | grep ".pls" -m1 | cut -d '"' -f 2)
-
-		# faster, single wget
 		rand_station=http://somafm.com$(shuf -n 1 <(wget http://somafm.com/listen/ -O - | grep AAC.*.pls | cut -d '"' -f 2))
 		stream_url=$rand_station
 	fi
