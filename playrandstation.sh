@@ -6,7 +6,7 @@
 while true ; do
 	if [ "$(( RANDOM % 1000))" -ge "500" ] ; then
 		echo radcap
-		rand_station=http://radcap.ru/$(shuf -n1 <(wget -q -O - http://radcap.ru/select.js | cut -d '"' -f 2 | grep html))
+		rand_station=http://radcap.ru/$(shuf -n1 <(wget -q -O - http://radcap.ru/select.js | grep '[^"]*.html' -o))
 		stream_url=$(wget -q -O - $rand_station | grep src=\"http://[0-9\.:]*/ -o | sed -e 's/.*\"//')
 	else
 		echo soma		
